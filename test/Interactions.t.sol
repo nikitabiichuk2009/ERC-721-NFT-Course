@@ -17,10 +17,7 @@ contract InteractionsTest is Test, Constants {
 
     function testCanMintNft() public {
         Interactions interactions = new Interactions();
-        interactions.mintNftOnContract(
-            address(basicNFT),
-            "ipfs://nikita.biichuk.json"
-        );
+        interactions.mintNftOnContract(address(basicNFT), "ipfs://nikita.biichuk.json");
         assert(basicNFT.getTokenCounter() == 1);
     }
 
@@ -28,9 +25,6 @@ contract InteractionsTest is Test, Constants {
         Interactions interactions = new Interactions();
         interactions.mintNftOnContract(address(basicNFT), "");
         assert(basicNFT.getTokenCounter() == 1);
-        assert(
-            keccak256(abi.encodePacked(basicNFT.tokenURI(0))) ==
-                keccak256(abi.encodePacked(DEFAULT_TOKEN_URI))
-        );
+        assert(keccak256(abi.encodePacked(basicNFT.tokenURI(0))) == keccak256(abi.encodePacked(DEFAULT_TOKEN_URI)));
     }
 }
