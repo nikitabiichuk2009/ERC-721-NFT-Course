@@ -22,8 +22,11 @@ ifeq ($(findstring --network sepolia,$(ARGS)),--network sepolia)
 	NETWORK_ARGS := --rpc-url $(SEPOLIA_RPC_URL) --account default --broadcast --verify --etherscan-api-key $(ETHERSCAN_API_KEY) -vvvv
 endif
 
-deploy:
+deploy-basic-nft:
 	@forge script script/DeployBasicNft.s.sol:DeployBasicNft $(NETWORK_ARGS)
+
+deploy-mood-nft:
+	@forge script script/DeployMoodNft.s.sol:DeployMoodNft $(NETWORK_ARGS)
 
 mint_default_token_uri_nft:
 	@forge script script/Interactions.s.sol:Interactions --sig "run(string)" "" $(NETWORK_ARGS)
