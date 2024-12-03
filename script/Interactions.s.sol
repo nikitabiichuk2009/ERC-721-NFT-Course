@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.27;
 
 import {Script} from "forge-std/Script.sol";
 import {BasicNFT} from "../src/BasicNFT.sol";
